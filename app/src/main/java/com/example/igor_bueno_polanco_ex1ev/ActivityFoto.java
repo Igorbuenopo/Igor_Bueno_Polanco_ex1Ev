@@ -12,11 +12,13 @@ import android.widget.TextView;
 
 public class ActivityFoto extends AppCompatActivity {
 
+    //declaramos las variables de los datos de los monumentos
     String titulo, descripcion;
     int numMonumento, puntuacion;
 
     ImageView imagen;
 
+    //declaramos los TextView y los botones de volver y puntuar
     TextView titView, descView, puntView;
 
     Button volver, puntuar;
@@ -29,11 +31,13 @@ public class ActivityFoto extends AppCompatActivity {
 
         Bundle bun = getIntent().getExtras();
 
+        //recibimos con el bundle los datos del monumento
         titulo = bun.getString("titulo");
         descripcion = bun.getString("descripcion");
         numMonumento = bun.getInt("monumento");
         puntuacion = bun.getInt("puntuacion");
 
+        //los id de lso componentes
         imagen = findViewById(R.id.idIvMon);
         titView = findViewById(R.id.idTvTitMon);
         descView = findViewById(R.id.idTvDescMon);
@@ -42,11 +46,12 @@ public class ActivityFoto extends AppCompatActivity {
         volver = findViewById(R.id.idBtVolver);
         puntuar = findViewById(R.id.idBtPuntuar);
 
+        //seteamos los datos
         titView.setText(titulo);
         descView.setText(descripcion);
         puntView.setText("Puntuación: "+String.valueOf(puntuacion));
 
-
+        //segun el numMonumento seteamos la imagen
         if(numMonumento == 1){
             Drawable img = getDrawable(R.drawable.foto1);
             imagen.setImageDrawable(img);
@@ -62,6 +67,7 @@ public class ActivityFoto extends AppCompatActivity {
             imagen.setImageDrawable(img);
         }
 
+        //onclickListener del boton volver, con el booleano de puntuar a false
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +77,7 @@ public class ActivityFoto extends AppCompatActivity {
             }
         });
 
+        //onclickListener del boton volver, con el booleano de puntuar a true, y con el nuevo puntuacion y a que monumento
         puntuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
