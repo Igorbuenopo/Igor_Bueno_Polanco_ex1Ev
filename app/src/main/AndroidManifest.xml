@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Igor_Bueno_Polanco_ex1Ev"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityFoto"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityFotos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
